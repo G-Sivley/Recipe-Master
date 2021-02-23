@@ -22,7 +22,8 @@ class RecipeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.title = selectedCategory?.name
     }
 
     // MARK: - Table view data source
@@ -43,20 +44,18 @@ class RecipeTableViewController: UITableViewController {
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
             // Delete the row from the data source
+            let selectedData = recipeArray[indexPath.row]
+            
+            context.delete(selectedData)
+            saveRecipes()
+            recipeArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -75,7 +74,7 @@ class RecipeTableViewController: UITableViewController {
     
     //MARK: - Data Manipulation Methods
     
-    func saveCategories() {
+    func saveRecipes() {
         do {
             try context.save()
         } catch {
@@ -84,9 +83,14 @@ class RecipeTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func loadRecipes() {
+    func loadRecipes(with request: NSFetchRequest<Recipe> = Recipe.fetchRequest()) {
+        
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+        
+        request.predicate = categoryPredicate
+        
         do {
-            recipeArray =  try context.fetch(Recipe.fetchRequest())
+            recipeArray =  try context.fetch(request)
         } catch {
             print("Error occurred in loading categories: \(error)")
         }
@@ -97,7 +101,33 @@ class RecipeTableViewController: UITableViewController {
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
+        var textField = UITextField()
         
+        let alert = UIAlertController(title: "Add New Recipe", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add Recipe", style: .default) { (action) in
+            // what happens when the add category button is clicked
+            
+            if let text = textField.text, textField.text != "" {
+                let newRecipe = Recipe(context: self.context)
+                newRecipe.name = text
+                newRecipe.parentCategory = self.selectedCategory
+                
+                self.recipeArray.append(newRecipe)
+                self.saveRecipes()
+                
+            } else {
+                // Need to add stuff here to make sure the User gets a notification that they need to redo it
+            }
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "New Recipe Here"
+            textField = alertTextField
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     
