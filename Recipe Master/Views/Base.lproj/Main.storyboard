@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZAW-gH-7QS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g47-8G-Yms">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -7,7 +7,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categories Table View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="bDG-Rf-pgS">
+            <objects>
+                <navigationController id="g47-8G-Yms" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nlC-YS-fzI">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZAW-gH-7QS" kind="relationship" relationship="rootViewController" id="DE6-UL-MpT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ing-rd-wKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-562" y="80"/>
+        </scene>
+        <!--Categories-->
         <scene sceneID="Rwf-G1-SK6">
             <objects>
                 <tableViewController id="ZAW-gH-7QS" customClass="CategoriesTableViewController" customModule="Recipe_Master" sceneMemberID="viewController">
@@ -30,10 +46,17 @@
                             <outlet property="delegate" destination="ZAW-gH-7QS" id="yOj-bH-o7k"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Categories" id="gUM-1Y-Bjg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="z43-Jo-Bv0">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="ZAW-gH-7QS" id="LP6-ty-vaS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0H8-hL-GDs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="239" y="81"/>
+            <point key="canvasLocation" x="249" y="80"/>
         </scene>
     </scenes>
     <resources>

@@ -17,19 +17,13 @@ class CategoriesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveCategories()
-//        var newCategory = Category()
-//        newCategory.name = "Greek"
-//        categoriesArray.append(newCategory)
+        loadCategories()
         
         // Uncomment the print statement below to print Core File path
-        print(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last?.absoluteString.removingPercentEncoding ?? "Not found")
+        // print(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last?.absoluteString.removingPercentEncoding ?? "Not found")
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -68,6 +62,7 @@ class CategoriesTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
@@ -85,4 +80,19 @@ class CategoriesTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    func loadCategories() {
+        do {
+            categoriesArray =  try context.fetch(Category.fetchRequest())
+        } catch {
+            print("Error occurred in loading categories: \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    
+    
+    //MARK: - Add New Category
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+    }
 }
