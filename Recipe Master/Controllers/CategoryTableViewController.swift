@@ -31,7 +31,6 @@ class CategoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoriesArray.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -126,6 +125,7 @@ class CategoriesTableViewController: UITableViewController {
                 
             } else {
                 // Need to add stuff here to make sure the User gets a notification that they need to redo it
+                
             }
         }
         

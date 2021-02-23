@@ -15,6 +15,7 @@
 		908871EF25E569AF00255989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908871ED25E569AF00255989 /* LaunchScreen.storyboard */; };
 		908871FA25E56A6C00255989 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908871F925E56A6C00255989 /* CategoryTableViewController.swift */; };
 		9088720925E5A20E00255989 /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088720825E5A20E00255989 /* RecipeTableViewController.swift */; };
+		9088720D25E5BEBF00255989 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088720C25E5BEBF00255989 /* RecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		908871F025E569AF00255989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		908871F925E56A6C00255989 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		9088720825E5A20E00255989 /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
+		9088720C25E5BEBF00255989 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				908871F925E56A6C00255989 /* CategoryTableViewController.swift */,
 				9088720825E5A20E00255989 /* RecipeTableViewController.swift */,
+				9088720C25E5BEBF00255989 /* RecipeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				908871EA25E569A900255989 /* Recipe_Master.xcdatamodeld in Sources */,
 				908871E025E569A900255989 /* AppDelegate.swift in Sources */,
+				9088720D25E5BEBF00255989 /* RecipeViewController.swift in Sources */,
 				908871E225E569A900255989 /* SceneDelegate.swift in Sources */,
 				908871FA25E56A6C00255989 /* CategoryTableViewController.swift in Sources */,
 				9088720925E5A20E00255989 /* RecipeTableViewController.swift in Sources */,
