@@ -94,5 +94,32 @@ class CategoriesTableViewController: UITableViewController {
     //MARK: - Add New Category
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add New Recipe Category", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
+            // what happens when the add category button is clicked
+            
+            if let text = textField.text, textField.text != "" {
+                let newCategory = Category(context: self.context)
+                newCategory.name = text
+                
+                self.categoriesArray.append(newCategory)
+                self.saveCategories()
+                
+            } else {
+                // Need to add stuff here to make sure the User gets a notification that they need to redo it
+                print("There was no text added")
+            }
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "New Category Here"
+            textField = alertTextField
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }
