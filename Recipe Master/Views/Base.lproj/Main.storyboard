@@ -53,10 +53,48 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="0fW-pc-fDE" kind="show" identifier="showRecipeListView" id="php-Ki-ydW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0H8-hL-GDs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="249" y="80"/>
+        </scene>
+        <!--Recipe Table View Controller-->
+        <scene sceneID="qWX-vt-G7q">
+            <objects>
+                <tableViewController id="0fW-pc-fDE" customClass="RecipeTableViewController" customModule="Recipe_Master" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yQq-OQ-Ccd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="ysv-yC-juQ">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ysv-yC-juQ" id="zsB-ft-Kvq">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0fW-pc-fDE" id="8xE-mW-xdo"/>
+                            <outlet property="delegate" destination="0fW-pc-fDE" id="eOh-J8-4Di"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uyl-Qd-GvL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CLy-gl-qNw">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="0fW-pc-fDE" id="31k-e4-a9o"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RGV-fa-vyt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013" y="80"/>
         </scene>
     </scenes>
     <resources>

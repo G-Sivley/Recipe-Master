@@ -61,10 +61,20 @@ class CategoriesTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showRecipeListView", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! RecipeTableViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categoriesArray[indexPath.row]
         
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        }
+        
     }
     
     
@@ -73,7 +83,6 @@ class CategoriesTableViewController: UITableViewController {
     func saveCategories() {
         do {
             try context.save()
-            print("I just saved categories")
         } catch {
             print("Error saving context \(error)")
         }
@@ -110,7 +119,6 @@ class CategoriesTableViewController: UITableViewController {
                 
             } else {
                 // Need to add stuff here to make sure the User gets a notification that they need to redo it
-                print("There was no text added")
             }
         }
         
