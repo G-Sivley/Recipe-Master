@@ -16,7 +16,7 @@ class CategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        categoryBubble.layer.cornerRadius = categoryBubble.frame.height / 3
+        categoryBubble.layer.cornerRadius = categoryBubble.frame.height / 5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

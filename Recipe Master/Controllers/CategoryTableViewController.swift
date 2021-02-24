@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import ViewAnimator
 
 class CategoriesTableViewController: UITableViewController {
     
@@ -17,13 +18,20 @@ class CategoriesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Registers the custom cell as the category cell name
-        tableView.register(UINib(nibName: K.categoryNib, bundle: nil), forCellReuseIdentifier: K.categoryCell)
         
+        tableView.register(UINib(nibName: K.categoryNib, bundle: nil), forCellReuseIdentifier: K.categoryCell)
+
         loadCategories()
         
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let animation = AnimationType.zoom(scale: 0.7)
+        UIView.animate(views: tableView.visibleCells, animations: [animation], initialAlpha: 0.1, finalAlpha: 1.0, duration: 0.3)
+
     }
 
     // MARK: - Table view data source

@@ -18,9 +18,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1m-Lv-GNp">
-                        <rect key="frame" x="25" y="15" width="363" height="75"/>
+                        <rect key="frame" x="25" y="5" width="363" height="75"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greek" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-IE-h4N">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greek" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-IE-h4N">
                                 <rect key="frame" x="10" y="5" width="343" height="65"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="35"/>
                                 <nil key="textColor"/>
@@ -39,10 +39,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="O1m-Lv-GNp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8se-ZY-Ceg"/>
-                    <constraint firstItem="O1m-Lv-GNp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="SrP-Q5-XfI"/>
+                    <constraint firstItem="O1m-Lv-GNp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="SrP-Q5-XfI"/>
                     <constraint firstItem="O1m-Lv-GNp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="ZAR-J4-l7V"/>
                     <constraint firstAttribute="trailing" secondItem="O1m-Lv-GNp" secondAttribute="trailing" constant="25" id="gWc-QR-ESh"/>
-                    <constraint firstAttribute="bottom" secondItem="O1m-Lv-GNp" secondAttribute="bottom" constant="15" id="qJf-ud-IKU"/>
+                    <constraint firstAttribute="bottom" secondItem="O1m-Lv-GNp" secondAttribute="bottom" constant="5" id="qJf-ud-IKU"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
