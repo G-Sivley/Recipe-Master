@@ -28,20 +28,10 @@
         <scene sceneID="Rwf-G1-SK6">
             <objects>
                 <tableViewController id="ZAW-gH-7QS" customClass="CategoriesTableViewController" customModule="Recipe_Master" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jGf-23-aml">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jGf-23-aml">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoryCell" id="bYB-i1-bUK">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bYB-i1-bUK" id="osA-ZW-K4j">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="ZAW-gH-7QS" id="DYF-uV-UiI"/>
                             <outlet property="delegate" destination="ZAW-gH-7QS" id="yOj-bH-o7k"/>
@@ -93,7 +83,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="oi3-Gs-N0T" kind="show" id="shV-a7-EbM"/>
+                        <segue destination="oi3-Gs-N0T" kind="show" identifier="goToRecipe" id="shV-a7-EbM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGV-fa-vyt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

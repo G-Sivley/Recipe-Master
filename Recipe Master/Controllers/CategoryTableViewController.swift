@@ -17,13 +17,13 @@ class CategoriesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Registers the custom cell as the category cell name
+        tableView.register(UINib(nibName: K.categoryNib, bundle: nil), forCellReuseIdentifier: K.categoryCell)
+        
         loadCategories()
         
-        // Uncomment the print statement below to print Core File path
-        // print(FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last?.absoluteString.removingPercentEncoding ?? "Not found")
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
     }
 
     // MARK: - Table view data source
@@ -34,11 +34,11 @@ class CategoriesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.categoryCell, for: indexPath) as! CategoryTableViewCell
         
         let category = categoriesArray[indexPath.row]
         
-        cell.textLabel?.text = category.name
+        cell.categoryLabel.text = category.name
         
         return cell
     }
@@ -68,7 +68,7 @@ class CategoriesTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showRecipeListView", sender: self)
+        performSegue(withIdentifier: K.segue.segueToRecipeTable, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
