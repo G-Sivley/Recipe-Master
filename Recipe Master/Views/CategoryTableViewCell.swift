@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class CategoryTableViewCell: UITableViewCell {
   
@@ -17,6 +18,7 @@ class CategoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         categoryBubble.layer.cornerRadius = categoryBubble.frame.height / 5
+        categoryBubble.backgroundColor = RandomFlatColor()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

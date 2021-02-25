@@ -29,8 +29,8 @@ class CategoriesTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let animation = AnimationType.zoom(scale: 0.7)
-        UIView.animate(views: tableView.visibleCells, animations: [animation], initialAlpha: 0.1, finalAlpha: 1.0, duration: 0.3)
+        let animation = AnimationType.vector(CGVector(dx: -250, dy: 0))
+        UIView.animate(views: tableView.visibleCells, animations: [animation], initialAlpha: 0.0, finalAlpha: 1.0, duration: 0.6)
 
     }
 
