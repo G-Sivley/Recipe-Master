@@ -62,16 +62,24 @@ class RecipeTableViewController: UITableViewController {
         }    
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
+        let destinationVC = segue.destination as! RecipeViewController
         // Pass the selected object to the new view controller.
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedRecipe = recipeArray[indexPath.row]
+        
+            
+        }
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: K.segue.segueToRecipeView, sender: self)
+    }
     
     //MARK: - Data Manipulation Methods
     

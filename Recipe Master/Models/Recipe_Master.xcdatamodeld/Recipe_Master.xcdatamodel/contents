@@ -4,12 +4,18 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="parentCategory" inverseEntity="Recipe"/>
     </entity>
+    <entity name="Ingredient" representedClassName=".Ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredient" inverseEntity="Recipe"/>
+    </entity>
     <entity name="Recipe" representedClassName=".Recipe" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" customClassName="."/>
+        <relationship name="ingredient" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="parentCategory" inverseEntity="Ingredient"/>
         <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="recipes" inverseEntity="Category"/>
     </entity>
     <elements>
         <element name="Category" positionX="-54" positionY="-9" width="128" height="73"/>
-        <element name="Recipe" positionX="249.5482788085938" positionY="-8.691375732421875" width="128" height="73"/>
+        <element name="Recipe" positionX="149.5516967773438" positionY="-8.833587646484375" width="128" height="88"/>
+        <element name="Ingredient" positionX="313.4207763671875" positionY="7.87237548828125" width="128" height="73"/>
     </elements>
 </model>

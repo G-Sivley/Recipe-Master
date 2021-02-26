@@ -9,6 +9,11 @@ import UIKit
 
 class RecipeViewController: UIViewController {
 
+    var selectedRecipe : Recipe? {
+        didSet {
+            //loadIngredients()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
