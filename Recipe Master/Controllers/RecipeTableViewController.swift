@@ -7,13 +7,13 @@
 
 import UIKit
 import CoreData
+import ViewAnimator
 
 class RecipeTableViewController: UITableViewController {
 
     var recipeArray = [Recipe]()
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+        
     var selectedCategory : Category? {
         didSet {
             loadRecipes()
@@ -23,6 +23,7 @@ class RecipeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib(nibName: K.categoryNib, bundle: nil), forCellReuseIdentifier: K.recipeCell)
         self.title = selectedCategory?.name
     }
 
@@ -35,11 +36,11 @@ class RecipeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.recipeCell, for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.recipeCell, for: indexPath) as! CategoryTableViewCell
         
         let recipe = recipeArray[indexPath.row]
         
-        cell.textLabel?.text = recipe.name
+        cell.label.text = recipe.name
         
         return cell
     }

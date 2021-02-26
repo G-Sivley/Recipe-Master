@@ -12,9 +12,10 @@ import ViewAnimator
 class CategoriesTableViewController: UITableViewController {
     
     var categoriesArray = [Category]()
-    
-    
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var animationHasBeenShow = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,11 @@ class CategoriesTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let animation = AnimationType.vector(CGVector(dx: -250, dy: 0))
-        UIView.animate(views: tableView.visibleCells, animations: [animation], initialAlpha: 0.0, finalAlpha: 1.0, duration: 0.6)
-
+        if !animationHasBeenShow {
+            animationHasBeenShow = true
+            let animation = AnimationType.vector(CGVector(dx: -250, dy: 0))
+            UIView.animate(views: tableView.visibleCells, animations: [animation], initialAlpha: 0.0, finalAlpha: 1.0, duration: 0.6)
+        }
     }
 
     // MARK: - Table view data source
@@ -46,7 +49,7 @@ class CategoriesTableViewController: UITableViewController {
         
         let category = categoriesArray[indexPath.row]
         
-        cell.categoryLabel.text = category.name
+        cell.label.text = category.name
         
         return cell
     }

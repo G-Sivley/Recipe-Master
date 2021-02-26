@@ -12,7 +12,7 @@ class CategoryTableViewCell: UITableViewCell {
   
     @IBOutlet weak var categoryBubble: UIView!
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
