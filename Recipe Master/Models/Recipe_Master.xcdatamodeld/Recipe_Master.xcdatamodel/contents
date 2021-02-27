@@ -12,17 +12,17 @@
     <entity name="Recipe" representedClassName=".Recipe" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" customClassName="."/>
         <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="parentRecipe" inverseEntity="Ingredient"/>
-        <relationship name="instructions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeInstruction" inverseName="parentRecipe" inverseEntity="RecipeInstruction"/>
+        <relationship name="instructions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeInstruction" inverseName="parentReci" inverseEntity="RecipeInstruction"/>
         <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="recipes" inverseEntity="Category"/>
     </entity>
     <entity name="RecipeInstruction" representedClassName=".RecipeInstruction" syncable="YES" codeGenerationType="class">
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="parentRecipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="instructions" inverseEntity="Recipe"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="parentReci" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="instructions" inverseEntity="Recipe"/>
     </entity>
     <elements>
         <element name="Category" positionX="-54" positionY="-9" width="128" height="73"/>
         <element name="Ingredient" positionX="434.2974853515625" positionY="-87.03677368164062" width="128" height="88"/>
         <element name="Recipe" positionX="149.5516967773438" positionY="-8.833587646484375" width="128" height="103"/>
-        <element name="RecipeInstruction" positionX="405.9376220703125" positionY="72.65667724609375" width="128" height="73"/>
+        <element name="RecipeInstruction" positionX="404.6622314453125" positionY="34.33682250976562" width="128" height="73"/>
     </elements>
 </model>

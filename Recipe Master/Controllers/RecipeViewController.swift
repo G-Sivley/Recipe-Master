@@ -13,7 +13,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var instructionsView: UIView!
     @IBOutlet weak var instructionsLabel: UILabel!
     
-    var instructionsArray = RecipeInstructions
+    var instructionArray = [RecipeInstruction]()
     var ingredientArray = [Ingredient]()
     
     
