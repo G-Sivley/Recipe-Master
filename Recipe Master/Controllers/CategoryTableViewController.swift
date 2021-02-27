@@ -65,7 +65,7 @@ class CategoriesTableViewController: UITableViewController {
             let selectedData = categoriesArray[indexPath.row]
             
             context.delete(selectedData)
-            saveCategories()
+            saveData()
             categoriesArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
@@ -97,7 +97,7 @@ class CategoriesTableViewController: UITableViewController {
     
     //MARK: - Data Manipulation Methods
     
-    func saveCategories() {
+    func saveData() {
         do {
             try context.save()
         } catch {
@@ -132,7 +132,7 @@ class CategoriesTableViewController: UITableViewController {
                 newCategory.name = text
                 
                 self.categoriesArray.append(newCategory)
-                self.saveCategories()
+                self.saveData()
                 
             } else {
                 // Need to add stuff here to make sure the User gets a notification that they need to redo it

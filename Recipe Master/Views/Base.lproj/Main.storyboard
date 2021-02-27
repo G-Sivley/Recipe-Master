@@ -135,7 +135,13 @@
                             <constraint firstItem="Wgz-SO-e6g" firstAttribute="centerX" secondItem="bJe-sw-507" secondAttribute="centerX" id="sJw-Wi-8NZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="u3k-hW-6AN"/>
+                    <navigationItem key="navigationItem" id="u3k-hW-6AN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="71s-Nu-nQL">
+                            <connections>
+                                <action selector="addRecipeIntructionsPressed:" destination="oi3-Gs-N0T" id="VOQ-H7-ekm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="instructionsLabel" destination="xLk-NB-3Li" id="Z39-jS-zDk"/>
                         <outlet property="instructionsView" destination="roz-LN-00i" id="0yx-KS-UKk"/>

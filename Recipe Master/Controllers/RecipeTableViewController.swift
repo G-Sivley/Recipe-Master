@@ -13,7 +13,7 @@ class RecipeTableViewController: UITableViewController {
 
     var recipeArray = [Recipe]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
+
     var selectedCategory : Category? {
         didSet {
             loadRecipes()
@@ -53,7 +53,7 @@ class RecipeTableViewController: UITableViewController {
             let selectedData = recipeArray[indexPath.row]
             
             context.delete(selectedData)
-            saveRecipes()
+            saveData()
             recipeArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
@@ -83,7 +83,7 @@ class RecipeTableViewController: UITableViewController {
     
     //MARK: - Data Manipulation Methods
     
-    func saveRecipes() {
+    func saveData() {
         do {
             try context.save()
         } catch {
@@ -91,6 +91,8 @@ class RecipeTableViewController: UITableViewController {
         }
         tableView.reloadData()
     }
+    
+    
     
     func loadRecipes(with request: NSFetchRequest<Recipe> = Recipe.fetchRequest()) {
         
@@ -123,7 +125,8 @@ class RecipeTableViewController: UITableViewController {
                 newRecipe.parentCategory = self.selectedCategory
                 
                 self.recipeArray.append(newRecipe)
-                self.saveRecipes()
+                self.saveData()
+                self.tableView.reloadData()
                 
             } else {
                 // Need to add stuff here to make sure the User gets a notification that they need to redo it
