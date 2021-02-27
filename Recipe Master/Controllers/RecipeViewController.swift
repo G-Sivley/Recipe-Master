@@ -8,7 +8,10 @@
 import UIKit
 
 class RecipeViewController: UIViewController {
-
+    @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var instructionsView: UIView!
+    @IBOutlet weak var instructionsLabel: UILabel!
+    
     var selectedRecipe : Recipe? {
         didSet {
             //loadIngredients()
@@ -16,8 +19,11 @@ class RecipeViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.title = selectedRecipe?.name
+        recipeImage.layer.cornerRadius = recipeImage.frame.height / 5
+        instructionsView.layer.cornerRadius = instructionsView.frame.height / 8
+        
     }
     
 

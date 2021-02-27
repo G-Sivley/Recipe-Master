@@ -87,17 +87,68 @@
                     <view key="view" contentMode="scaleToFill" id="bJe-sw-507">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="roz-LN-00i">
+                                <rect key="frame" x="15" y="424" width="384" height="197.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FN0-vP-mgV">
+                                        <rect key="frame" x="15" y="15" width="354" height="167.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kW4-ex-X6G">
+                                                <rect key="frame" x="0.0" y="0.0" width="200.5" height="37"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.) Make dough 2.)Make Sauce 3.) Place toppings 4.) Put in oven 5.) Cook for 15 minutes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLk-NB-3Li">
+                                                <rect key="frame" x="0.0" y="52" width="224" height="115.5"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="Kgc-Qd-vFJ"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.30196078430000001" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FN0-vP-mgV" secondAttribute="trailing" constant="15" id="0wG-t2-i6n"/>
+                                    <constraint firstItem="FN0-vP-mgV" firstAttribute="top" secondItem="roz-LN-00i" secondAttribute="top" constant="15" id="9NM-D9-vbJ"/>
+                                    <constraint firstItem="FN0-vP-mgV" firstAttribute="leading" secondItem="roz-LN-00i" secondAttribute="leading" constant="15" id="SOV-Hx-b1z"/>
+                                    <constraint firstAttribute="bottom" secondItem="FN0-vP-mgV" secondAttribute="bottom" constant="15" id="Siw-Zi-BMv"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pizza" translatesAutoresizingMaskIntoConstraints="NO" id="Wgz-SO-e6g">
+                                <rect key="frame" x="8" y="155" width="398" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="S2v-qX-n1m"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="b4Q-Xc-NSG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wgz-SO-e6g" firstAttribute="leading" secondItem="bJe-sw-507" secondAttribute="leading" constant="8" id="1pr-52-mUz"/>
+                            <constraint firstItem="b4Q-Xc-NSG" firstAttribute="trailing" secondItem="Wgz-SO-e6g" secondAttribute="trailing" constant="8" id="6eJ-Ud-Zje"/>
+                            <constraint firstItem="Wgz-SO-e6g" firstAttribute="top" secondItem="b4Q-Xc-NSG" secondAttribute="top" constant="15" id="7Gy-br-F5t"/>
+                            <constraint firstItem="Wgz-SO-e6g" firstAttribute="centerX" secondItem="bJe-sw-507" secondAttribute="centerX" id="sJw-Wi-8NZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u3k-hW-6AN"/>
+                    <connections>
+                        <outlet property="instructionsLabel" destination="xLk-NB-3Li" id="Z39-jS-zDk"/>
+                        <outlet property="instructionsView" destination="roz-LN-00i" id="0yx-KS-UKk"/>
+                        <outlet property="recipeImage" destination="Wgz-SO-e6g" id="I3H-QS-ihe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u5-Ju-4Fz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="80"/>
+            <point key="canvasLocation" x="1708.6956521739132" y="79.6875"/>
         </scene>
     </scenes>
     <resources>
+        <image name="pizza" width="765" height="446"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

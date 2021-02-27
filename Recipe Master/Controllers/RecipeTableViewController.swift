@@ -41,7 +41,7 @@ class RecipeTableViewController: UITableViewController {
         let recipe = recipeArray[indexPath.row]
         
         cell.label.text = recipe.name
-        
+    
         return cell
     }
 
