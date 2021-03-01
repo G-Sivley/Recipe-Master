@@ -12,12 +12,12 @@
     <entity name="Recipe" representedClassName=".Recipe" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" customClassName="."/>
         <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="parentRecipe" inverseEntity="Ingredient"/>
-        <relationship name="instructions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeInstruction" inverseName="parentReci" inverseEntity="RecipeInstruction"/>
+        <relationship name="instructions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeInstruction" inverseName="parentRecipe" inverseEntity="RecipeInstruction"/>
         <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="recipes" inverseEntity="Category"/>
     </entity>
     <entity name="RecipeInstruction" representedClassName=".RecipeInstruction" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="parentReci" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="instructions" inverseEntity="Recipe"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="parentRecipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="instructions" inverseEntity="Recipe"/>
     </entity>
     <elements>
         <element name="Category" positionX="-54" positionY="-9" width="128" height="73"/>

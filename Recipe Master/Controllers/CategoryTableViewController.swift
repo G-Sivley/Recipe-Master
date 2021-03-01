@@ -25,6 +25,8 @@ class CategoriesTableViewController: UITableViewController {
 
         loadCategories()
         
+//        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+//        print(paths[0])
         
     }
     
