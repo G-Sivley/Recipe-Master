@@ -105,19 +105,18 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-iT-obp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-iT-obp">
                                 <rect key="frame" x="0.0" y="420" width="414" height="442"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="instructionCell" textLabel="F82-XD-FRM" rowHeight="38" style="IBUITableViewCellStyleDefault" id="uDO-XT-Edm">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="38"/>
+                                        <rect key="frame" x="20" y="55.5" width="374" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uDO-XT-Edm" id="RTY-za-X6j">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="38"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="38"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F82-XD-FRM">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="38"/>
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="38"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -143,11 +142,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u3k-hW-6AN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="71s-Nu-nQL">
-                            <connections>
-                                <action selector="addRecipeIntructionsPressed:" destination="oi3-Gs-N0T" id="VOQ-H7-ekm"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="71s-Nu-nQL">
+                                <connections>
+                                    <action selector="addRecipeIntructionsPressed:" destination="oi3-Gs-N0T" id="VOQ-H7-ekm"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Sort" id="7pz-2h-8xs">
+                                <connections>
+                                    <action selector="didTapSort" destination="oi3-Gs-N0T" id="hWD-G0-Tw1"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="instructionsTableView" destination="uzr-iT-obp" id="XwK-Tf-MAA"/>

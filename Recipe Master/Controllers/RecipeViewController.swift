@@ -97,7 +97,13 @@ class RecipeViewController: UIViewController {
         
     }
     
-    
+    func deleteInstructions(data: RecipeInstruction, path: IndexPath) {
+        context.delete(data)
+        saveData()
+        instructionArray.remove(at: path.row)
+        instructionsTableView.deleteRows(at: [path], with: .fade)
+        
+    }
     
     /*
      // MARK: - Navigation
@@ -114,7 +120,6 @@ class RecipeViewController: UIViewController {
 
 extension RecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(instructionArray.count)
         return instructionArray.count
     }
     
@@ -125,18 +130,39 @@ extension RecipeViewController: UITableViewDataSource {
             cell.textLabel?.text = "\(indexPath.row + 1).) \(instruction)"
             
         }
-        
-        
         return cell
-        
     }
-    
-    
 }
 
 
 //MARK: - Table Manipulation
 extension RecipeViewController: UITableViewDelegate {
     
+    // need to set up a way to edit rows
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        instructionArray.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        instructionsTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let selectedData = instructionArray[indexPath.row]
+            
+            deleteInstructions(data: selectedData, path: indexPath)
+        }
+    }
+    
+    @IBAction func didTapSort() {
+        if instructionsTableView.isEditing {
+            instructionsTableView.isEditing = false
+        } else {
+            instructionsTableView.isEditing = true
+        }
+    }
 }
 
