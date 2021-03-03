@@ -88,25 +88,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pizza" translatesAutoresizingMaskIntoConstraints="NO" id="Wgz-SO-e6g">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wgz-SO-e6g">
                                 <rect key="frame" x="8" y="155" width="398" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="S2v-qX-n1m"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FN0-vP-mgV">
-                                <rect key="frame" x="30" y="249" width="200.5" height="37"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kW4-ex-X6G">
-                                        <rect key="frame" x="0.0" y="0.0" width="200.5" height="37"/>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-iT-obp">
-                                <rect key="frame" x="0.0" y="420" width="414" height="442"/>
+                                <rect key="frame" x="0.0" y="460" width="414" height="402"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="instructionCell" textLabel="F82-XD-FRM" rowHeight="38" style="IBUITableViewCellStyleDefault" id="uDO-XT-Edm">
                                         <rect key="frame" x="20" y="55.5" width="374" height="38"/>
@@ -127,18 +116,41 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kW4-ex-X6G">
+                                <rect key="frame" x="15" y="413" width="384" height="37"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiW-vg-nxd">
+                                <rect key="frame" x="8" y="155" width="398" height="250"/>
+                                <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="29"/>
+                                <state key="normal" title="Press to add image">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addImagePressed:" destination="oi3-Gs-N0T" eventType="touchUpInside" id="uQi-bS-5UX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b4Q-Xc-NSG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Wgz-SO-e6g" firstAttribute="leading" secondItem="bJe-sw-507" secondAttribute="leading" constant="8" id="1pr-52-mUz"/>
+                            <constraint firstItem="kW4-ex-X6G" firstAttribute="leading" secondItem="b4Q-Xc-NSG" secondAttribute="leading" constant="15" id="510-PG-eLV"/>
                             <constraint firstItem="b4Q-Xc-NSG" firstAttribute="trailing" secondItem="Wgz-SO-e6g" secondAttribute="trailing" constant="8" id="6eJ-Ud-Zje"/>
                             <constraint firstItem="Wgz-SO-e6g" firstAttribute="top" secondItem="b4Q-Xc-NSG" secondAttribute="top" constant="15" id="7Gy-br-F5t"/>
-                            <constraint firstItem="b4Q-Xc-NSG" firstAttribute="bottom" secondItem="uzr-iT-obp" secondAttribute="bottom" id="JqY-Kd-THb"/>
-                            <constraint firstItem="uzr-iT-obp" firstAttribute="leading" secondItem="b4Q-Xc-NSG" secondAttribute="leading" id="ODl-fI-csq"/>
-                            <constraint firstItem="uzr-iT-obp" firstAttribute="top" secondItem="Wgz-SO-e6g" secondAttribute="bottom" constant="15" id="pSM-J2-RcE"/>
+                            <constraint firstAttribute="bottom" secondItem="uzr-iT-obp" secondAttribute="bottom" constant="34" id="9jY-8S-yCK"/>
+                            <constraint firstItem="kW4-ex-X6G" firstAttribute="top" secondItem="Wgz-SO-e6g" secondAttribute="bottom" constant="8" symbolic="YES" id="FMI-sa-9xU"/>
+                            <constraint firstItem="b4Q-Xc-NSG" firstAttribute="trailing" secondItem="kW4-ex-X6G" secondAttribute="trailing" constant="15" id="Ixv-yU-rQy"/>
+                            <constraint firstItem="uzr-iT-obp" firstAttribute="leading" secondItem="b4Q-Xc-NSG" secondAttribute="leading" id="Vbh-pZ-yMo"/>
+                            <constraint firstItem="MiW-vg-nxd" firstAttribute="top" secondItem="b4Q-Xc-NSG" secondAttribute="top" constant="15" id="avL-kG-7sh"/>
+                            <constraint firstItem="MiW-vg-nxd" firstAttribute="leading" secondItem="b4Q-Xc-NSG" secondAttribute="leading" constant="8" id="iZD-kW-v5w"/>
+                            <constraint firstItem="kW4-ex-X6G" firstAttribute="top" secondItem="MiW-vg-nxd" secondAttribute="bottom" constant="8" symbolic="YES" id="oqa-3y-V6P"/>
+                            <constraint firstItem="uzr-iT-obp" firstAttribute="top" secondItem="kW4-ex-X6G" secondAttribute="bottom" constant="10" id="q5K-HX-XFa"/>
+                            <constraint firstItem="b4Q-Xc-NSG" firstAttribute="trailing" secondItem="MiW-vg-nxd" secondAttribute="trailing" constant="8" id="rUx-hK-vqt"/>
                             <constraint firstItem="Wgz-SO-e6g" firstAttribute="centerX" secondItem="bJe-sw-507" secondAttribute="centerX" id="sJw-Wi-8NZ"/>
-                            <constraint firstItem="b4Q-Xc-NSG" firstAttribute="trailing" secondItem="uzr-iT-obp" secondAttribute="trailing" id="wpT-Df-5l8"/>
+                            <constraint firstItem="uzr-iT-obp" firstAttribute="trailing" secondItem="b4Q-Xc-NSG" secondAttribute="trailing" id="vUd-Ra-Rcg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u3k-hW-6AN">
@@ -156,8 +168,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageButton" destination="MiW-vg-nxd" id="20a-EM-ygt"/>
                         <outlet property="instructionsTableView" destination="uzr-iT-obp" id="XwK-Tf-MAA"/>
-                        <outlet property="recipeImage" destination="Wgz-SO-e6g" id="I3H-QS-ihe"/>
+                        <outlet property="recipeImageView" destination="Wgz-SO-e6g" id="I3H-QS-ihe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u5-Ju-4Fz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -166,7 +179,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pizza" width="765" height="446"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="quaternarySystemFillColor">
+            <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

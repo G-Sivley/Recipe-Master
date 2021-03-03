@@ -9,13 +9,14 @@ import UIKit
 import CoreData
 
 class RecipeViewController: UIViewController {
-    @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var instructionsTableView: UITableView!
-    @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet weak var imageButton: UIButton!
     
     var instructionArray = [RecipeInstruction]()
     var ingredientArray = [Ingredient]()
     
+    let imagePicker = UIImagePickerController()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -24,12 +25,22 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // sets the image in the image view
+        if let selectedRecipeImage = selectedRecipe?.image {
+            imageButton.isHidden = true
+            recipeImageView.image = UIImage(data: selectedRecipeImage, scale: 1.0)
+        }
+        
         instructionsTableView.dataSource = self
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
+        imagePicker.showsCameraControls = true
         
         loadRecipe()
         self.title = selectedRecipe?.name
-        recipeImage.layer.cornerRadius = recipeImage.frame.height / 5
-       
+        recipeImageView.layer.cornerRadius = recipeImageView.frame.height / 5
         
     }
     
@@ -105,17 +116,12 @@ class RecipeViewController: UIViewController {
         
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    @IBAction func addImagePressed(_ sender: UIButton) {
+        present(imagePicker, animated: true, completion: nil)
+        imageButton.isHidden = true
+    }
 }
+
 //MARK: - Table SetUp
 
 extension RecipeViewController: UITableViewDataSource {
@@ -166,3 +172,26 @@ extension RecipeViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - Image Manipulation
+
+extension RecipeViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            let imageData = userPickedImage.jpegData(compressionQuality: 0.5)
+            selectedRecipe?.image = imageData
+            saveData()
+            
+            
+            recipeImageView.image = userPickedImage
+            
+            
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RecipeViewController: UINavigationControllerDelegate {
+    
+}

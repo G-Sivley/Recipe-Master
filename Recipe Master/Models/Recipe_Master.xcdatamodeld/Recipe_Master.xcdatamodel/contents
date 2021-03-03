@@ -10,6 +10,7 @@
         <relationship name="parentRecipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe"/>
     </entity>
     <entity name="Recipe" representedClassName=".Recipe" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="name" attributeType="String" customClassName="."/>
         <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="parentRecipe" inverseEntity="Ingredient"/>
         <relationship name="instructions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecipeInstruction" inverseName="parentRecipe" inverseEntity="RecipeInstruction"/>
@@ -22,7 +23,7 @@
     <elements>
         <element name="Category" positionX="-54" positionY="-9" width="128" height="73"/>
         <element name="Ingredient" positionX="434.2974853515625" positionY="-87.03677368164062" width="128" height="88"/>
-        <element name="Recipe" positionX="149.5516967773438" positionY="-8.833587646484375" width="128" height="103"/>
+        <element name="Recipe" positionX="149.5516967773438" positionY="-8.833587646484375" width="128" height="118"/>
         <element name="RecipeInstruction" positionX="404.6622314453125" positionY="34.33682250976562" width="128" height="73"/>
     </elements>
 </model>
