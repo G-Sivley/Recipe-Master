@@ -27,7 +27,7 @@ class RecipeViewController: UIViewController {
         
         // sets the image in the image view
         if let selectedRecipeImage = selectedRecipe?.image {
-            imageButton.isHidden = true
+            showImage(TorF: true)
             recipeImageView.image = UIImage(data: selectedRecipeImage, scale: 1.0)
         }
         
@@ -118,7 +118,8 @@ class RecipeViewController: UIViewController {
     
     @IBAction func addImagePressed(_ sender: UIButton) {
         present(imagePicker, animated: true, completion: nil)
-        imageButton.isHidden = true
+        showImage(TorF: true)
+        instructionsTableView.isEditing = false
     }
 }
 
@@ -163,16 +164,18 @@ extension RecipeViewController: UITableViewDelegate {
         }
     }
     
-    @IBAction func didTapSort() {
+    @IBAction func didTapEdit() {
         if instructionsTableView.isEditing {
             instructionsTableView.isEditing = false
+            showImage(TorF: true)
         } else {
             instructionsTableView.isEditing = true
+            showImage(TorF: false)
         }
     }
 }
 
-//MARK: - Image Manipulation
+//MARK: - Image Selection
 
 extension RecipeViewController: UIImagePickerControllerDelegate {
     
@@ -183,12 +186,21 @@ extension RecipeViewController: UIImagePickerControllerDelegate {
             selectedRecipe?.image = imageData
             saveData()
             
-            
             recipeImageView.image = userPickedImage
-            
             
         }
         imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func showImage(TorF: Bool) {
+        
+        if TorF {
+            recipeImageView.isHidden = false
+            imageButton.isHidden = true
+        } else {
+            recipeImageView.isHidden = true
+            imageButton.isHidden = false
+        }
     }
 }
 

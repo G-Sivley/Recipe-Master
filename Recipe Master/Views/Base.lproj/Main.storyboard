@@ -160,9 +160,9 @@
                                     <action selector="addRecipeIntructionsPressed:" destination="oi3-Gs-N0T" id="VOQ-H7-ekm"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Sort" id="7pz-2h-8xs">
+                            <barButtonItem systemItem="edit" id="7pz-2h-8xs">
                                 <connections>
-                                    <action selector="didTapSort" destination="oi3-Gs-N0T" id="hWD-G0-Tw1"/>
+                                    <action selector="didTapEdit" destination="oi3-Gs-N0T" id="hWD-G0-Tw1"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
