@@ -40,7 +40,7 @@ class RecipeTableViewController: UITableViewController {
         
         let recipe = recipeArray[indexPath.row]
         
-        cell.label.text = recipe.name
+        cell.label.text = recipe.name?.capitalized
     
         return cell
     }

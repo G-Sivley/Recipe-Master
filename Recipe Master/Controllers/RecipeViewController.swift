@@ -18,6 +18,8 @@ class RecipeViewController: UIViewController {
     
     let imagePicker = UIImagePickerController()
     
+    // var alertPresenter = AlertPresenter()
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var selectedRecipe : Recipe?
@@ -55,6 +57,7 @@ class RecipeViewController: UIViewController {
             // what happens when the add category button is clicked
             
             if let text = textField.text, textField.text != "" {
+                
                 let newInstruction = RecipeInstruction(context: self.context)
                 newInstruction.name = text
                 newInstruction.parentRecipe = self.selectedRecipe
@@ -62,7 +65,6 @@ class RecipeViewController: UIViewController {
                 self.instructionArray.append(newInstruction)
                 self.saveData()
                 self.loadRecipe()
-                
                 
             } else {
                 // Need to add stuff here to make sure the User gets a notification that they need to redo it
@@ -80,8 +82,6 @@ class RecipeViewController: UIViewController {
     
     
     
-    
-    
     //MARK: - Data Manipulation Methods
     func saveData() {
         do {
@@ -93,14 +93,22 @@ class RecipeViewController: UIViewController {
     }
     
     func loadRecipe() {
+        let recipePredicate = NSPredicate(format: "parentRecipe.name MATCHES %@", selectedRecipe!.name!)
+        
+        let ingredientRequest: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
+        
+        let instructionRequest: NSFetchRequest<RecipeInstruction> = RecipeInstruction.fetchRequest()
+        
         do {
+            ingredientRequest.predicate = recipePredicate
             ingredientArray =  try context.fetch(Ingredient.fetchRequest())
         } catch {
             print("Error occurred in loading ingredients: \(error)")
         }
         
         do {
-            instructionArray = try context.fetch(RecipeInstruction.fetchRequest())
+            instructionRequest.predicate = recipePredicate
+            instructionArray = try context.fetch(instructionRequest)
         } catch {
             print("There was an error in loading instructions")
         }

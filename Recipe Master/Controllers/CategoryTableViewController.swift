@@ -131,7 +131,7 @@ class CategoriesTableViewController: UITableViewController {
             
             if let text = textField.text, textField.text != "" {
                 let newCategory = Category(context: self.context)
-                newCategory.name = text
+                newCategory.name = text.capitalized
                 
                 self.categoriesArray.append(newCategory)
                 self.saveData()
