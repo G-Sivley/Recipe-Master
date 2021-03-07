@@ -23,6 +23,11 @@ class CategoriesTableViewController: UITableViewController {
         
         tableView.register(UINib(nibName: K.categoryNib, bundle: nil), forCellReuseIdentifier: K.categoryCell)
 
+        
+        let app = UINavigationBarAppearance()
+        app.backgroundColor = UIColor(named: "AppOrange")
+            self.navigationController?.navigationBar.scrollEdgeAppearance = app
+        
         loadCategories()
         
 //        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)

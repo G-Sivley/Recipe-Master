@@ -21,6 +21,7 @@
 		9088722825E6B91E00255989 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088722625E6B91E00255989 /* CategoryTableViewCell.swift */; };
 		9088722925E6B91E00255989 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9088722725E6B91E00255989 /* CategoryTableViewCell.xib */; };
 		9088722C25E6C0D600255989 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9088722B25E6C0D600255989 /* Constants.swift */; };
+		9089A70025F52F2500608964 /* License free.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9089A6FF25F52F2500608964 /* License free.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		9088722625E6B91E00255989 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		9088722725E6B91E00255989 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 		9088722B25E6C0D600255989 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9089A6FF25F52F2500608964 /* License free.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "License free.txt"; sourceTree = "<group>"; };
 		A631BD30BDE60CD83CDF5916 /* Pods-Recipe Master.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe Master.release.xcconfig"; path = "Target Support Files/Pods-Recipe Master/Pods-Recipe Master.release.xcconfig"; sourceTree = "<group>"; };
 		CA9B1DC1C967885817D7ECE1 /* Pods-Recipe Master.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe Master.debug.xcconfig"; path = "Target Support Files/Pods-Recipe Master/Pods-Recipe Master.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				908871ED25E569AF00255989 /* LaunchScreen.storyboard */,
 				908871F025E569AF00255989 /* Info.plist */,
 				9088722B25E6C0D600255989 /* Constants.swift */,
+				9089A70225F52F2800608964 /* License */,
 			);
 			path = "Recipe Master";
 			sourceTree = "<group>";
@@ -133,6 +136,14 @@
 				9088720C25E5BEBF00255989 /* RecipeViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9089A70225F52F2800608964 /* License */ = {
+			isa = PBXGroup;
+			children = (
+				9089A6FF25F52F2500608964 /* License free.txt */,
+			);
+			path = License;
 			sourceTree = "<group>";
 		};
 		C6FF811BC5D63E07FB33D274 /* Pods */ = {
@@ -205,6 +216,7 @@
 			files = (
 				908871EF25E569AF00255989 /* LaunchScreen.storyboard in Resources */,
 				908871EC25E569AF00255989 /* Assets.xcassets in Resources */,
+				9089A70025F52F2500608964 /* License free.txt in Resources */,
 				908871E725E569A900255989 /* Main.storyboard in Resources */,
 				9088722925E6B91E00255989 /* CategoryTableViewCell.xib in Resources */,
 			);

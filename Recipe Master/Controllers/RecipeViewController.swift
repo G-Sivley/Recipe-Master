@@ -67,7 +67,9 @@ class RecipeViewController: UIViewController {
                 self.loadRecipe()
                 
             } else {
+                
                 self.showBasicAlert(alertText: "Empty Text Bar", alertMessage: "Please fill in the text bar")
+                
             }
         }
         
