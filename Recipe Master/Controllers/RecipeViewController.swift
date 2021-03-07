@@ -67,7 +67,7 @@ class RecipeViewController: UIViewController {
                 self.loadRecipe()
                 
             } else {
-                // Need to add stuff here to make sure the User gets a notification that they need to redo it
+                self.showBasicAlert(alertText: "Empty Text Bar", alertMessage: "Please fill in the text bar")
             }
         }
         

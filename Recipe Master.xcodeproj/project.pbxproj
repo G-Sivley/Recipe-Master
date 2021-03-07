@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10CCBF1C72ED2F959675CF37 /* Pods_Recipe_Master.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF88585DD362B827B25E258 /* Pods_Recipe_Master.framework */; };
+		9087FC1125F5223D00557BA1 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9087FC1025F5223D00557BA1 /* ViewControllerExtensions.swift */; };
 		908871E025E569A900255989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908871DF25E569A900255989 /* AppDelegate.swift */; };
 		908871E225E569A900255989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908871E125E569A900255989 /* SceneDelegate.swift */; };
 		908871E725E569A900255989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908871E525E569A900255989 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		8FF88585DD362B827B25E258 /* Pods_Recipe_Master.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe_Master.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9087FC1025F5223D00557BA1 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		908871DC25E569A900255989 /* Recipe Master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe Master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		908871DF25E569A900255989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908871E125E569A900255989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9087FC1425F5224400557BA1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9087FC1025F5223D00557BA1 /* ViewControllerExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		908871D325E569A900255989 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 				908871FC25E56A7300255989 /* Views */,
 				908871FD25E56B4F00255989 /* Controllers */,
 				908871EB25E569AF00255989 /* Assets.xcassets */,
+				9087FC1425F5224400557BA1 /* Extensions */,
 				908871ED25E569AF00255989 /* LaunchScreen.storyboard */,
 				908871F025E569AF00255989 /* Info.plist */,
 				9088722B25E6C0D600255989 /* Constants.swift */,
@@ -255,6 +266,7 @@
 				9088722825E6B91E00255989 /* CategoryTableViewCell.swift in Sources */,
 				908871FA25E56A6C00255989 /* CategoryTableViewController.swift in Sources */,
 				9088720925E5A20E00255989 /* RecipeTableViewController.swift in Sources */,
+				9087FC1125F5223D00557BA1 /* ViewControllerExtensions.swift in Sources */,
 				9088722C25E6C0D600255989 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
