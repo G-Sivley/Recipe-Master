@@ -18,7 +18,12 @@ class CategoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         categoryBubble.layer.cornerRadius = categoryBubble.frame.height / 5
-        categoryBubble.backgroundColor = RandomFlatColor()
+        // categoryBubble.backgroundColor = RandomFlatColor()
+        
+        // change the accesssory to the color of choice
+        self.tintColor = RandomFlatColor()
+    
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
