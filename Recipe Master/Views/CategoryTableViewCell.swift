@@ -14,6 +14,8 @@ class CategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var label: UILabel!
     
+    @IBOutlet weak var sfSymbolView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,8 +23,8 @@ class CategoryTableViewCell: UITableViewCell {
         // categoryBubble.backgroundColor = RandomFlatColor()
         
         // change the accesssory to the color of choice
-        self.tintColor = RandomFlatColor()
-    
+        
+        sfSymbolView.image = UIImage(systemName: "chevron.right.circle.fill")
 
     }
 
