@@ -24,7 +24,7 @@ class CategoryTableViewCell: UITableViewCell {
         
         // change the accesssory to the color of choice
         
-        sfSymbolView.image = UIImage(systemName: "chevron.right.circle.fill")
+        sfSymbolView.image = UIImage(systemName: "chevron.forward.circle")
 
     }
 

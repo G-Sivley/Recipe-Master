@@ -12,6 +12,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var instructionsTableView: UITableView!
     @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var ingredientTableView: UITableView!
     
     var instructionArray = [RecipeInstruction]()
     var ingredientArray = [Ingredient]()
@@ -59,7 +60,7 @@ class RecipeViewController: UIViewController {
             if let text = textField.text, textField.text != "" {
                 
                 let newInstruction = RecipeInstruction(context: self.context)
-                newInstruction.name = text
+                newInstruction.name = text.capitalized
                 newInstruction.parentRecipe = self.selectedRecipe
                 
                 self.instructionArray.append(newInstruction)

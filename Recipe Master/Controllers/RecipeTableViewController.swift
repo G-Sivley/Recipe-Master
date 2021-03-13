@@ -121,7 +121,7 @@ class RecipeTableViewController: UITableViewController {
             
             if let text = textField.text, textField.text != "" {
                 let newRecipe = Recipe(context: self.context)
-                newRecipe.name = text
+                newRecipe.name = text.capitalized
                 newRecipe.parentCategory = self.selectedCategory
                 
                 self.recipeArray.append(newRecipe)
