@@ -35,6 +35,7 @@ class RecipeViewController: UIViewController {
         }
         
         instructionsTableView.dataSource = self
+        ingredientTableView.dataSource = self
         
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
@@ -138,17 +139,32 @@ class RecipeViewController: UIViewController {
 
 extension RecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return instructionArray.count
+        if tableView == instructionsTableView {
+            return instructionArray.count
+        } else {
+            return ingredientArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = instructionsTableView.dequeueReusableCell(withIdentifier: "instructionCell", for: indexPath) as UITableViewCell
-        
-        if let instruction = instructionArray[indexPath.row].name {
-            cell.textLabel?.text = "\(indexPath.row + 1).) \(instruction)"
+        if tableView == instructionsTableView {
+            let cell = instructionsTableView.dequeueReusableCell(withIdentifier: "instructionCell", for: indexPath) as UITableViewCell
             
+            if let instruction = instructionArray[indexPath.row].name {
+                cell.textLabel?.text = "\(indexPath.row + 1).) \(instruction)"
+                
+            }
+            return cell
+            
+        } else {
+            let cell = ingredientTableView.dequeueReusableCell(withIdentifier: "IngredientsCell", for: indexPath) as UITableViewCell
+            if let ingredient = ingredientArray[indexPath.row].name {
+                cell.textLabel?.text = ingredient
+            }
+            
+            return cell
         }
-        return cell
+        
     }
 }
 
