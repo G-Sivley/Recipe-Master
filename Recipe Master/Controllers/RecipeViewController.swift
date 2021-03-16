@@ -37,62 +37,15 @@ class RecipeViewController: UIViewController {
         instructionsTableView.dataSource = self
         ingredientTableView.dataSource = self
         
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = true
-        imagePicker.showsCameraControls = true
+        cameraSetup()
         
         loadRecipe()
         self.title = selectedRecipe?.name
         recipeImageView.layer.cornerRadius = recipeImageView.frame.height / 5
     
-        
-        let menu = UIMenu(title: "Add item", children: [
-
-            UIAction(title: "Add Instruction", handler: { (_) in
-                
-                var textField = UITextField()
-
-                let alert = UIAlertController(title: "Add New Instruction", message: "", preferredStyle: .alert)
-
-                let action = UIAlertAction(title: "Add Instruction", style: .default) { (action) in
-                    // what happens when the add category button is clicked
-
-                    if let text = textField.text, textField.text != "" {
-
-                        let newInstruction = RecipeInstruction(context: self.context)
-                        newInstruction.name = text.capitalized
-                        newInstruction.parentRecipe = self.selectedRecipe
-
-                        self.instructionArray.append(newInstruction)
-                        self.saveData()
-                        self.loadRecipe()
-
-                    } else {
-
-                        self.showBasicAlert(alertText: "Empty Text Bar", alertMessage: "Please fill in the text bar")
-
-                    }
-                }
-
-                alert.addTextField { (alertTextField) in
-                    alertTextField.placeholder = "New Instruction Here"
-                    textField = alertTextField
-                }
-
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-            }),
-
-            UIAction(title: "Add Ingredient", handler: { (_) in
-                // handler
-            })
-
-
-        ])
-    
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), primaryAction: nil, menu: menu)
+        addMenu()
     }
+        
 
     //MARK: - Data Manipulation Methods
     func saveData() {
@@ -125,6 +78,7 @@ class RecipeViewController: UIViewController {
             print("There was an error in loading instructions")
         }
         instructionsTableView.reloadData()
+        ingredientTableView.reloadData()
         
     }
     
@@ -152,8 +106,8 @@ extension RecipeViewController: UITableViewDataSource {
         if tableView == instructionsTableView {
             return instructionArray.count
         } else {
-//            return ingredientArray.count
-            return 10
+            return ingredientArray.count
+           
         }
     }
     
@@ -170,15 +124,99 @@ extension RecipeViewController: UITableViewDataSource {
         } else {
             let cell = ingredientTableView.dequeueReusableCell(withIdentifier: "IngredientsCell", for: indexPath) as UITableViewCell
             
-            cell.textLabel?.text = "WOW"
-//            if let ingredient = ingredientArray[indexPath.row].name {
-//                cell.textLabel?.text = ingredient
-//            }
+       
+            if let ingredient = ingredientArray[indexPath.row].name {
+                cell.textLabel?.text = ingredient
+            }
             
             return cell
         }
         
     }
+    
+    //MARK: - Add Menu
+    
+    private func addMenu() {
+        let menu = UIMenu(title: "Add item", children: [instructionMenuItem(), ingredientMenuItem()])
+    
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), primaryAction: nil, menu: menu)
+    }
+    
+    private func instructionMenuItem() -> UIAction {
+        UIAction(title: "Add Instruction", handler: { (_) in
+            
+            var textField = UITextField()
+
+            let alert = UIAlertController(title: "Add New Instruction", message: "", preferredStyle: .alert)
+
+            let action = UIAlertAction(title: "Add Instruction", style: .default) { (action) in
+                // what happens when the add category button is clicked
+
+                if let text = textField.text, textField.text != "" {
+
+                    let newInstruction = RecipeInstruction(context: self.context)
+                    newInstruction.name = text.capitalized
+                    newInstruction.parentRecipe = self.selectedRecipe
+
+                    self.instructionArray.append(newInstruction)
+                    self.saveData()
+                    self.loadRecipe()
+
+                } else {
+
+                    self.showBasicAlert(alertText: "Empty Text Bar", alertMessage: "Please fill in the text bar")
+
+                }
+            }
+
+            alert.addTextField { (alertTextField) in
+                alertTextField.placeholder = "New Instruction Here"
+                textField = alertTextField
+            }
+
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        })
+    }
+    
+    private func ingredientMenuItem() -> UIAction {
+        UIAction(title: "Add Ingredient", handler: { (_) in
+            var textField = UITextField()
+
+            let alert = UIAlertController(title: "Add New Ingredient", message: "", preferredStyle: .alert)
+
+            let action = UIAlertAction(title: "Add Ingredient", style: .default) { (action) in
+                // what happens when the add category button is clicked
+
+                if let text = textField.text, textField.text != "" {
+
+                    let newIngredient = Ingredient(context: self.context)
+                    newIngredient.name = text.capitalized
+                    newIngredient.done = false
+                    newIngredient.parentRecipe = self.selectedRecipe
+
+                    self.ingredientArray.append(newIngredient)
+                    self.saveData()
+                    self.loadRecipe()
+
+                } else {
+
+                    self.showBasicAlert(alertText: "Empty Text Bar", alertMessage: "Please fill in the text bar")
+
+                }
+            }
+
+            alert.addTextField { (alertTextField) in
+                alertTextField.placeholder = "New Ingredient Here"
+                textField = alertTextField
+            }
+
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        })
+
+    }
+    
 }
 
 
@@ -242,8 +280,23 @@ extension RecipeViewController: UIImagePickerControllerDelegate {
             imageButton.isHidden = false
         }
     }
+    
+    
 }
 
-extension RecipeViewController: UINavigationControllerDelegate {
+extension RecipeViewController: UINavigationControllerDelegate{
+    
+}
+
+//MARK: - Camera Setup
+
+extension RecipeViewController {
+    
+    func cameraSetup() {
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
+        imagePicker.showsCameraControls = true
+    }
     
 }
