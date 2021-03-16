@@ -45,47 +45,55 @@ class RecipeViewController: UIViewController {
         loadRecipe()
         self.title = selectedRecipe?.name
         recipeImageView.layer.cornerRadius = recipeImageView.frame.height / 5
+    
         
+        let menu = UIMenu(title: "Add item", children: [
+
+            UIAction(title: "Add Instruction", handler: { (_) in
+                
+                var textField = UITextField()
+
+                let alert = UIAlertController(title: "Add New Instruction", message: "", preferredStyle: .alert)
+
+                let action = UIAlertAction(title: "Add Instruction", style: .default) { (action) in
+                    // what happens when the add category button is clicked
+
+                    if let text = textField.text, textField.text != "" {
+
+                        let newInstruction = RecipeInstruction(context: self.context)
+                        newInstruction.name = text.capitalized
+                        newInstruction.parentRecipe = self.selectedRecipe
+
+                        self.instructionArray.append(newInstruction)
+                        self.saveData()
+                        self.loadRecipe()
+
+                    } else {
+
+                        self.showBasicAlert(alertText: "Empty Text Bar", alertMessage: "Please fill in the text bar")
+
+                    }
+                }
+
+                alert.addTextField { (alertTextField) in
+                    alertTextField.placeholder = "New Instruction Here"
+                    textField = alertTextField
+                }
+
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            }),
+
+            UIAction(title: "Add Ingredient", handler: { (_) in
+                // handler
+            })
+
+
+        ])
+    
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), primaryAction: nil, menu: menu)
     }
-    
-    //MARK: - Add Button Pressed
-    
-    @IBAction func addRecipeIntructionsPressed(_ sender: UIBarButtonItem) {
-        var textField = UITextField()
-        
-        let alert = UIAlertController(title: "Add New Instruction", message: "", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Add Instruction", style: .default) { (action) in
-            // what happens when the add category button is clicked
-            
-            if let text = textField.text, textField.text != "" {
-                
-                let newInstruction = RecipeInstruction(context: self.context)
-                newInstruction.name = text.capitalized
-                newInstruction.parentRecipe = self.selectedRecipe
-                
-                self.instructionArray.append(newInstruction)
-                self.saveData()
-                self.loadRecipe()
-                
-            } else {
-                
-                self.showBasicAlert(alertText: "Empty Text Bar", alertMessage: "Please fill in the text bar")
-                
-            }
-        }
-        
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "New Instruction Here"
-            textField = alertTextField
-        }
-        
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
-    
+
     //MARK: - Data Manipulation Methods
     func saveData() {
         do {
@@ -133,16 +141,19 @@ class RecipeViewController: UIViewController {
         showImage(TorF: true)
         instructionsTableView.isEditing = false
     }
+    
 }
 
 //MARK: - Table SetUp
 
 extension RecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if tableView == instructionsTableView {
             return instructionArray.count
         } else {
-            return ingredientArray.count
+//            return ingredientArray.count
+            return 10
         }
     }
     
@@ -158,9 +169,11 @@ extension RecipeViewController: UITableViewDataSource {
             
         } else {
             let cell = ingredientTableView.dequeueReusableCell(withIdentifier: "IngredientsCell", for: indexPath) as UITableViewCell
-            if let ingredient = ingredientArray[indexPath.row].name {
-                cell.textLabel?.text = ingredient
-            }
+            
+            cell.textLabel?.text = "WOW"
+//            if let ingredient = ingredientArray[indexPath.row].name {
+//                cell.textLabel?.text = ingredient
+//            }
             
             return cell
         }

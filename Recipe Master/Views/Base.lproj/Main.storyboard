@@ -97,8 +97,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YMR-Ek-vnb">
-                                <rect key="frame" x="0.0" y="140" width="414" height="848"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMR-Ek-vnb">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sko-pG-Xr2" userLabel="contentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
@@ -195,10 +195,10 @@
                                             <constraint firstItem="BiS-fH-SyV" firstAttribute="leading" secondItem="Sko-pG-Xr2" secondAttribute="leading" constant="15" id="RJV-gT-uaj"/>
                                             <constraint firstItem="BiS-fH-SyV" firstAttribute="centerX" secondItem="Sko-pG-Xr2" secondAttribute="centerX" id="XUL-92-HFI"/>
                                             <constraint firstItem="BiS-fH-SyV" firstAttribute="top" secondItem="Sko-pG-Xr2" secondAttribute="top" constant="10" id="Y21-Cy-fwn"/>
+                                            <constraint firstAttribute="height" constant="2000" id="ca5-wR-sOr"/>
                                             <constraint firstAttribute="bottom" secondItem="BiS-fH-SyV" secondAttribute="bottom" id="egg-z4-3V4"/>
                                             <constraint firstAttribute="trailing" secondItem="MiW-vg-nxd" secondAttribute="trailing" constant="15" id="t85-xV-gd1"/>
                                             <constraint firstItem="MiW-vg-nxd" firstAttribute="leading" secondItem="Sko-pG-Xr2" secondAttribute="leading" constant="15" id="xdt-G9-bpz"/>
-                                            <constraint firstAttribute="height" constant="2000" id="zyN-Sj-AbJ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -229,11 +229,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="u3k-hW-6AN">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="71s-Nu-nQL">
-                                <connections>
-                                    <action selector="addRecipeIntructionsPressed:" destination="oi3-Gs-N0T" id="VOQ-H7-ekm"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="71s-Nu-nQL"/>
                             <barButtonItem systemItem="edit" id="7pz-2h-8xs">
                                 <connections>
                                     <action selector="didTapEdit" destination="oi3-Gs-N0T" id="hWD-G0-Tw1"/>
@@ -250,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1u5-Ju-4Fz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1707.2" y="79.160419790104953"/>
+            <point key="canvasLocation" x="1705.7971014492755" y="79.017857142857139"/>
         </scene>
     </scenes>
     <resources>

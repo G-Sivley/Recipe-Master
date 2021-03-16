@@ -47,6 +47,7 @@ class CategoriesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return categoriesArray.count
     }
     
